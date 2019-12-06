@@ -1,0 +1,595 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F4E35DED239B1EC200F86E9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E35DEC239B1EC200F86E9A /* AppDelegate.swift */; };
+		F4E35DEF239B1EC200F86E9A /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = F4E35DEE239B1EC200F86E9A /* art.scnassets */; };
+		F4E35DF1239B1EC200F86E9A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E35DF0239B1EC200F86E9A /* ViewController.swift */; };
+		F4E35DF4239B1EC200F86E9A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4E35DF2239B1EC200F86E9A /* Main.storyboard */; };
+		F4E35DF6239B1EC300F86E9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4E35DF5239B1EC300F86E9A /* Assets.xcassets */; };
+		F4E35DF9239B1EC300F86E9A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4E35DF7239B1EC300F86E9A /* LaunchScreen.storyboard */; };
+		F4E35E04239B1EC300F86E9A /* Room_PlannerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E35E03239B1EC300F86E9A /* Room_PlannerTests.swift */; };
+		F4E35E0F239B1EC300F86E9A /* Room_PlannerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E35E0E239B1EC300F86E9A /* Room_PlannerUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F4E35E00239B1EC300F86E9A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F4E35DE1239B1EC200F86E9A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F4E35DE8239B1EC200F86E9A;
+			remoteInfo = "Room Planner";
+		};
+		F4E35E0B239B1EC300F86E9A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F4E35DE1239B1EC200F86E9A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F4E35DE8239B1EC200F86E9A;
+			remoteInfo = "Room Planner";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F4E35DE9239B1EC200F86E9A /* Room Planner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Room Planner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F4E35DEC239B1EC200F86E9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F4E35DEE239B1EC200F86E9A /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
+		F4E35DF0239B1EC200F86E9A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F4E35DF3239B1EC200F86E9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F4E35DF5239B1EC300F86E9A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F4E35DF8239B1EC300F86E9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F4E35DFA239B1EC300F86E9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F4E35DFF239B1EC300F86E9A /* Room PlannerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Room PlannerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F4E35E03239B1EC300F86E9A /* Room_PlannerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room_PlannerTests.swift; sourceTree = "<group>"; };
+		F4E35E05239B1EC300F86E9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F4E35E0A239B1EC300F86E9A /* Room PlannerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Room PlannerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F4E35E0E239B1EC300F86E9A /* Room_PlannerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room_PlannerUITests.swift; sourceTree = "<group>"; };
+		F4E35E10239B1EC300F86E9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F4E35DE6239B1EC200F86E9A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F4E35DFC239B1EC300F86E9A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F4E35E07239B1EC300F86E9A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F4E35DE0239B1EC200F86E9A = {
+			isa = PBXGroup;
+			children = (
+				F4E35DEB239B1EC200F86E9A /* Room Planner */,
+				F4E35E02239B1EC300F86E9A /* Room PlannerTests */,
+				F4E35E0D239B1EC300F86E9A /* Room PlannerUITests */,
+				F4E35DEA239B1EC200F86E9A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F4E35DEA239B1EC200F86E9A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F4E35DE9239B1EC200F86E9A /* Room Planner.app */,
+				F4E35DFF239B1EC300F86E9A /* Room PlannerTests.xctest */,
+				F4E35E0A239B1EC300F86E9A /* Room PlannerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F4E35DEB239B1EC200F86E9A /* Room Planner */ = {
+			isa = PBXGroup;
+			children = (
+				F4E35DEC239B1EC200F86E9A /* AppDelegate.swift */,
+				F4E35DEE239B1EC200F86E9A /* art.scnassets */,
+				F4E35DF0239B1EC200F86E9A /* ViewController.swift */,
+				F4E35DF2239B1EC200F86E9A /* Main.storyboard */,
+				F4E35DF5239B1EC300F86E9A /* Assets.xcassets */,
+				F4E35DF7239B1EC300F86E9A /* LaunchScreen.storyboard */,
+				F4E35DFA239B1EC300F86E9A /* Info.plist */,
+			);
+			path = "Room Planner";
+			sourceTree = "<group>";
+		};
+		F4E35E02239B1EC300F86E9A /* Room PlannerTests */ = {
+			isa = PBXGroup;
+			children = (
+				F4E35E03239B1EC300F86E9A /* Room_PlannerTests.swift */,
+				F4E35E05239B1EC300F86E9A /* Info.plist */,
+			);
+			path = "Room PlannerTests";
+			sourceTree = "<group>";
+		};
+		F4E35E0D239B1EC300F86E9A /* Room PlannerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F4E35E0E239B1EC300F86E9A /* Room_PlannerUITests.swift */,
+				F4E35E10239B1EC300F86E9A /* Info.plist */,
+			);
+			path = "Room PlannerUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F4E35DE8239B1EC200F86E9A /* Room Planner */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F4E35E13239B1EC300F86E9A /* Build configuration list for PBXNativeTarget "Room Planner" */;
+			buildPhases = (
+				F4E35DE5239B1EC200F86E9A /* Sources */,
+				F4E35DE6239B1EC200F86E9A /* Frameworks */,
+				F4E35DE7239B1EC200F86E9A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Room Planner";
+			productName = "Room Planner";
+			productReference = F4E35DE9239B1EC200F86E9A /* Room Planner.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F4E35DFE239B1EC300F86E9A /* Room PlannerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F4E35E16239B1EC300F86E9A /* Build configuration list for PBXNativeTarget "Room PlannerTests" */;
+			buildPhases = (
+				F4E35DFB239B1EC300F86E9A /* Sources */,
+				F4E35DFC239B1EC300F86E9A /* Frameworks */,
+				F4E35DFD239B1EC300F86E9A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F4E35E01239B1EC300F86E9A /* PBXTargetDependency */,
+			);
+			name = "Room PlannerTests";
+			productName = "Room PlannerTests";
+			productReference = F4E35DFF239B1EC300F86E9A /* Room PlannerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F4E35E09239B1EC300F86E9A /* Room PlannerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F4E35E19239B1EC300F86E9A /* Build configuration list for PBXNativeTarget "Room PlannerUITests" */;
+			buildPhases = (
+				F4E35E06239B1EC300F86E9A /* Sources */,
+				F4E35E07239B1EC300F86E9A /* Frameworks */,
+				F4E35E08239B1EC300F86E9A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F4E35E0C239B1EC300F86E9A /* PBXTargetDependency */,
+			);
+			name = "Room PlannerUITests";
+			productName = "Room PlannerUITests";
+			productReference = F4E35E0A239B1EC300F86E9A /* Room PlannerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F4E35DE1239B1EC200F86E9A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1120;
+				LastUpgradeCheck = 1120;
+				ORGANIZATIONNAME = "Evan Kirkiles";
+				TargetAttributes = {
+					F4E35DE8239B1EC200F86E9A = {
+						CreatedOnToolsVersion = 11.2.1;
+					};
+					F4E35DFE239B1EC300F86E9A = {
+						CreatedOnToolsVersion = 11.2.1;
+						TestTargetID = F4E35DE8239B1EC200F86E9A;
+					};
+					F4E35E09239B1EC300F86E9A = {
+						CreatedOnToolsVersion = 11.2.1;
+						TestTargetID = F4E35DE8239B1EC200F86E9A;
+					};
+				};
+			};
+			buildConfigurationList = F4E35DE4239B1EC200F86E9A /* Build configuration list for PBXProject "Room Planner" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F4E35DE0239B1EC200F86E9A;
+			productRefGroup = F4E35DEA239B1EC200F86E9A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F4E35DE8239B1EC200F86E9A /* Room Planner */,
+				F4E35DFE239B1EC300F86E9A /* Room PlannerTests */,
+				F4E35E09239B1EC300F86E9A /* Room PlannerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F4E35DE7239B1EC200F86E9A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F4E35DEF239B1EC200F86E9A /* art.scnassets in Resources */,
+				F4E35DF9239B1EC300F86E9A /* LaunchScreen.storyboard in Resources */,
+				F4E35DF6239B1EC300F86E9A /* Assets.xcassets in Resources */,
+				F4E35DF4239B1EC200F86E9A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F4E35DFD239B1EC300F86E9A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F4E35E08239B1EC300F86E9A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F4E35DE5239B1EC200F86E9A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F4E35DF1239B1EC200F86E9A /* ViewController.swift in Sources */,
+				F4E35DED239B1EC200F86E9A /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F4E35DFB239B1EC300F86E9A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F4E35E04239B1EC300F86E9A /* Room_PlannerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F4E35E06239B1EC300F86E9A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F4E35E0F239B1EC300F86E9A /* Room_PlannerUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F4E35E01239B1EC300F86E9A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F4E35DE8239B1EC200F86E9A /* Room Planner */;
+			targetProxy = F4E35E00239B1EC300F86E9A /* PBXContainerItemProxy */;
+		};
+		F4E35E0C239B1EC300F86E9A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F4E35DE8239B1EC200F86E9A /* Room Planner */;
+			targetProxy = F4E35E0B239B1EC300F86E9A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F4E35DF2239B1EC200F86E9A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F4E35DF3239B1EC200F86E9A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F4E35DF7239B1EC300F86E9A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F4E35DF8239B1EC300F86E9A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F4E35E11239B1EC300F86E9A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F4E35E12239B1EC300F86E9A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F4E35E14239B1EC300F86E9A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z38G8Z9XR4;
+				INFOPLIST_FILE = "Room Planner/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "evankirkiles.Room-Planner";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F4E35E15239B1EC300F86E9A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z38G8Z9XR4;
+				INFOPLIST_FILE = "Room Planner/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "evankirkiles.Room-Planner";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F4E35E17239B1EC300F86E9A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z38G8Z9XR4;
+				INFOPLIST_FILE = "Room PlannerTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "evankirkiles.Room-PlannerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Room Planner.app/Room Planner";
+			};
+			name = Debug;
+		};
+		F4E35E18239B1EC300F86E9A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z38G8Z9XR4;
+				INFOPLIST_FILE = "Room PlannerTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "evankirkiles.Room-PlannerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Room Planner.app/Room Planner";
+			};
+			name = Release;
+		};
+		F4E35E1A239B1EC300F86E9A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z38G8Z9XR4;
+				INFOPLIST_FILE = "Room PlannerUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "evankirkiles.Room-PlannerUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Room Planner";
+			};
+			name = Debug;
+		};
+		F4E35E1B239B1EC300F86E9A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z38G8Z9XR4;
+				INFOPLIST_FILE = "Room PlannerUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "evankirkiles.Room-PlannerUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Room Planner";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F4E35DE4239B1EC200F86E9A /* Build configuration list for PBXProject "Room Planner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F4E35E11239B1EC300F86E9A /* Debug */,
+				F4E35E12239B1EC300F86E9A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F4E35E13239B1EC300F86E9A /* Build configuration list for PBXNativeTarget "Room Planner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F4E35E14239B1EC300F86E9A /* Debug */,
+				F4E35E15239B1EC300F86E9A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F4E35E16239B1EC300F86E9A /* Build configuration list for PBXNativeTarget "Room PlannerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F4E35E17239B1EC300F86E9A /* Debug */,
+				F4E35E18239B1EC300F86E9A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F4E35E19239B1EC300F86E9A /* Build configuration list for PBXNativeTarget "Room PlannerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F4E35E1A239B1EC300F86E9A /* Debug */,
+				F4E35E1B239B1EC300F86E9A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F4E35DE1239B1EC200F86E9A /* Project object */;
+}
