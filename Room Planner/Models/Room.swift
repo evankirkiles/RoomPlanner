@@ -39,6 +39,10 @@ class Room: SCNNode {
     // Adds a point to the room boundary, connected to the last point added
     public func addPoint(x: CGFloat, z: CGFloat) {
         boundaries.append((x, z))
+        // Add the corner node to the point at the given hit
+        let corner = SCNNode(geometry: Geometries.Corner())
+        corner.worldPosition = SCNVector3(x, 0, z)
+        addChildNode(corner)
     }
     
     // Removes the last point added to the room
