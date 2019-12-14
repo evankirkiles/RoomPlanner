@@ -9,7 +9,7 @@
 import UIKit
 import SceneKit
 
-class Room: NSObject {
+class Room: SCNNode {
     
     // MARK: Fields
     
@@ -27,6 +27,11 @@ class Room: NSObject {
     // Initializes an unbuilt room
     init(name: String) {
         title = name
+        super.init()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: Methods

@@ -15,11 +15,14 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
     
-    // How far away until snapping to initial point?
-    final let SNAP_DISTANCE: Float = 0.02
+    // MARK: - Constants
     
+    // How far away until snapping to initial point?
+    final let SNAP_DISTANCE: Float = 0.05
     // Bit masks for objects
     final var FLOOR_BITMASK = 0x2
+    
+    // MARK: - FIELDS: Building Room
 
     // Has the ground level been found yet?
     var groundPlane: SCNNode?
@@ -28,6 +31,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     // Current room being built and the points associated with it
     var currentRoom: Room?
     var currentRoomPoints = Array<SCNNode>()
+    var currentRoomWalls = Array<SCNNode>()
     var currentConnector: Connector?
     var currentRoomConnectors = Array<SCNNode>()
     
@@ -39,12 +43,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // Show statistics such as fps and timing information
         sceneView.showsStatistics = true
-        
-        // Create a new scene
-        let scene = SCNScene(named: "art.scnassets/ship.scn")!
-        
-        // Set the scene to the view
-        sceneView.scene = scene
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -72,12 +71,11 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.session.pause()
     }
     
+    // MARK: - Handling Taps
     
-    
-    // MARK: - Custom
     // Handles when the user performs a gesture on the screen
     @objc func handleTap(sender: UITapGestureRecognizer) {
-        
+
         // If the first point has not been set, wait until user taps to set the point.
         if (groundPlane == nil) {
             
@@ -91,26 +89,66 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             
         } else {
             
-            // Add the point at the center of the screen to the scene
-            let corner = SCNNode(geometry: Geometries.Corner())
-            sceneView.scene.rootNode.addChildNode(corner)
-            corner.worldPosition = groundProjection!.worldPosition
-            currentRoomPoints.append(corner)
+            // MARK: - TAP: Building Room
             
-            // Also add it to the room
-            currentRoom?.addPoint(x: CGFloat(corner.worldPosition.x), z: CGFloat(corner.worldPosition.z))
-            // Connect it to the previous point
-            if (currentRoomPoints.count > 1) {
-                announce(message: "haaa")
-                let connector = Connector(from: currentRoomPoints[back: 1], to: corner, type: .Built)
-                sceneView.scene.rootNode.addChildNode(connector)
-                currentRoomConnectors.append(connector)
-                currentConnector!.setFrom(node: corner)
-            } else if (currentConnector == nil) {
-                // Build an edge from the last added corner to the center of the screen
-                currentConnector = Connector(from: currentRoomPoints[back: 0], to: groundProjection!, type: .Building)
-                sceneView.scene.rootNode.addChildNode(currentConnector!)
+            if (!currentRoom!.isCompleted()) {
+                
+                // Add the point at the center of the screen to the scene
+                let corner = SCNNode(geometry: Geometries.Corner())
+                sceneView.scene.rootNode.addChildNode(corner)
+                corner.worldPosition = groundProjection!.worldPosition
+                currentRoomPoints.append(corner)
+                
+                // Also add it to the room
+                currentRoom?.addPoint(x: CGFloat(corner.worldPosition.x), z: CGFloat(corner.worldPosition.z))
+                // Connect it to the previous point
+                if (currentRoomPoints.count > 1) {
+                    announce(message: "haaa")
+                    let connector = Connector(from: currentRoomPoints[back: 1], to: corner, type: .Built)
+                    sceneView.scene.rootNode.addChildNode(connector)
+                    currentRoomConnectors.append(connector)
+                    
+                    // Is the room completed at this point?
+                    if (currentRoom!.isCompleted()) {
+                        currentConnector!.removeFromParentNode()
+                        groundProjection?.removeFromParentNode()
+                        groundProjection = nil
+                        currentConnector = nil
+                        
+                        // Run the room finished rendering animation (draw planes upwards)
+                        
+                    } else {
+                        currentConnector!.setFrom(node: corner)
+                    }
+                    
+                } else if (currentConnector == nil) {
+                    // Build an edge from the last added corner to the center of the screen
+                    currentConnector = Connector(from: currentRoomPoints[back: 0], to: groundProjection!, type: .Building)
+                    sceneView.scene.rootNode.addChildNode(currentConnector!)
+                }
+                
+            // MARK: - TAP: Room Completed
+            // Build planes above each connector and animate them going up to infinity
+            } else if (currentRoomWalls.count == 0) {
+                
+                for i in 0..<(currentRoomPoints.count - 1) {
+                    let geom = SCNPlane(width: CGFloat(currentRoomPoints[i+1].position.distance(vector: currentRoomPoints[i].position)), height: 0)
+                    geom.firstMaterial?.diffuse.contents = UIColor.black
+                    geom.firstMaterial?.transparency = 0.9
+                    let wall = SCNNode(geometry: geom)
+                    wall.position = (currentRoomPoints[i+1].position + currentRoomPoints[i].position) / 2
+                    wall.position.y += Float(geom.height / 2)
+                    wall.eulerAngles = SCNVector3(0, -atan2(currentRoomPoints[i].position.x - wall.position.x, currentRoomPoints[i+1].position.z - wall.position.z) - Float.pi * 0.5, 0)
+                    currentRoomWalls.append(wall)
+                    sceneView.scene.rootNode.addChildNode(wall)
+                    
+                    // Animate the plane's height going all the way up to infinity
+                    
+                }
+                
             }
+            
+            
         }
         
     }
@@ -136,14 +174,16 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
     
 
-    // MARK: - ARSCNViewDelegate
+    // MARK: - Rendering
     
     // The main render loop
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
+        
+        // MARK: - RENDER: Building Room
 
         // If the room isn't yet finished, add the projection node to the coordinates found
         // by the hit test from the camera to the floor.
-        if (groundPlane != nil && currentRoom != nil) {
+        if (groundPlane != nil && currentRoom != nil && !currentRoom!.isCompleted()) {
             let hitTestResult = sceneView.hitTest(CGPoint(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 2), options: [SCNHitTestOption.categoryBitMask: FLOOR_BITMASK])
             if (!hitTestResult.isEmpty) {
                 guard let hitResult = hitTestResult.first else { return }
@@ -163,7 +203,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 currentConnector?.refresh()
             }
         }
-        
     }
     
     func session(_ session: ARSession, didFailWithError error: Error) {
