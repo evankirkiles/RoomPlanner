@@ -33,9 +33,12 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     final let SNAP_DISTANCE: Float = 0.05
     // Bit masks for objects
     final var FLOOR_BITMASK = 0x2
+    final var ANCHOR_BITMASK = 0x3
     
     // MARK: - Fields
 
+    // Keep track of all the anchors added so we can delete them.
+    var anchors = Array<ARAnchor>()
     // Has the ground level been found yet?
     var groundPlane: SCNNode?
     // The current projection onto the ground from the center
@@ -63,7 +66,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // Create a session configuration
         let configuration = ARWorldTrackingConfiguration()
-        configuration.planeDetection = [.horizontal, .vertical]
+        configuration.planeDetection = [.horizontal]
         
         // Create the tap recognizer
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:)))
@@ -94,15 +97,25 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // If the first point has not been set, wait until user taps to set the point.
         if (groundPlane == nil) {
             
-            // Build the floor and add it to the scene
-            groundPlane = SCNNode(geometry: Geometries.Floor())
-            groundPlane!.position.y = sceneView.pointOfView!.position.y - 0.1
-            groundPlane?.categoryBitMask = FLOOR_BITMASK
-            sceneView.scene.rootNode.addChildNode(groundPlane!)
-            // Begin building the room
-            currentRoom = Room(name: "Building room...")
-            currentRoom!.position.y = groundPlane!.position.y
-            sceneView.scene.rootNode.addChildNode(currentRoom!)
+            // Get the hit test from the center of the screen to set the floor height
+            let hitTestResult = sceneView.hitTest(CGPoint(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 2), options: [SCNHitTestOption.categoryBitMask: ANCHOR_BITMASK])
+            if (!hitTestResult.isEmpty) {
+                guard let hitResult = hitTestResult.first else { return }
+                
+                // Build the floor and add it to the scene
+                groundPlane = SCNNode(geometry: Geometries.Floor())
+                groundPlane?.categoryBitMask = FLOOR_BITMASK
+                sceneView.scene.rootNode.addChildNode(groundPlane!)
+                groundPlane!.worldPosition.y = hitResult.worldCoordinates.y
+                // Begin building the room
+                currentRoom = Room(name: "Building room...")
+                currentRoom!.position.y = groundPlane!.position.y
+                sceneView.scene.rootNode.addChildNode(currentRoom!)
+                
+                // Clear all anchors / remove them from scene
+                for anchor: ARAnchor in anchors { sceneView.session.remove(anchor: anchor) }
+                
+            }
             
         } else {
             
@@ -209,6 +222,61 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Reset tracking and/or remove existing anchors if consistent tracking is required
         
     }
+    
+    // MARK: - Renderer functions
+    // Only used to detect initial floor plane
+    
+    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
+        // 1
+        if (groundPlane != nil) { return }
+        guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
+        anchors.append(planeAnchor)
+        
+        // 2
+        let width = CGFloat(planeAnchor.extent.x)
+        let height = CGFloat(planeAnchor.extent.z)
+        let plane = SCNPlane(width: width, height: height)
+        
+        // 3
+        plane.materials.first?.diffuse.contents = UIImage(named: "art.scnassets/placefloor.png")
+        plane.materials.first?.transparency = 0.8
+        
+        // 4
+        let planeNode = SCNNode(geometry: plane)
+        
+        // 5
+        let x = CGFloat(planeAnchor.center.x)
+        let y = CGFloat(planeAnchor.center.y)
+        let z = CGFloat(planeAnchor.center.z)
+        planeNode.position = SCNVector3(x,y,z)
+        planeNode.eulerAngles.x = -.pi / 2
+        planeNode.categoryBitMask = ANCHOR_BITMASK
+        
+        // 6
+        node.addChildNode(planeNode)
+    }
+    
+    func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
+        // 1
+        if (groundPlane != nil) { return }
+        guard let planeAnchor = anchor as?  ARPlaneAnchor,
+            let planeNode = node.childNodes.first,
+            let plane = planeNode.geometry as? SCNPlane
+            else { return }
+         
+        // 2
+        let width = CGFloat(planeAnchor.extent.x)
+        let height = CGFloat(planeAnchor.extent.z)
+        plane.width = width
+        plane.height = height
+         
+        // 3
+        let x = CGFloat(planeAnchor.center.x)
+        let y = CGFloat(planeAnchor.center.y)
+        let z = CGFloat(planeAnchor.center.z)
+        planeNode.position = SCNVector3(x, y, z)
+    }
+    
 }
 
 extension Collection where Index: Comparable {
