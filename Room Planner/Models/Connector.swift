@@ -51,18 +51,17 @@ class Connector: SCNNode {
         self.firstMaterialStore.diffuse.wrapT = .repeat
         self.firstMaterialStore.isDoubleSided = true
         super.init()
-        refresh()
     }
     
     // Redraw the cylinder between the two points
     func refresh() {
-        let vector = node1.position - node2.position
+        let vector = node1.worldPosition - node2.worldPosition
         let height = vector.length()
         cylinder = SCNCylinder(radius: Connector.CYLINDER_RADIUS, height: CGFloat(height))
         cylinder!.firstMaterial! = self.firstMaterialStore
         cylinder!.firstMaterial!.diffuse.contentsTransform = SCNMatrix4MakeScale(2 * Float(Connector.CYLINDER_RADIUS) * Connector.TEXTURE_REPEAT, height * Connector.TEXTURE_REPEAT, 1)
         geometry = cylinder
-        position = (node1.position + node2.position) / 2
+        worldPosition = (node1.worldPosition + node2.worldPosition) / 2
         eulerAngles = SCNVector3.lineEulerAngles(vector: vector)
     }
     

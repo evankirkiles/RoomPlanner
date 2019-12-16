@@ -22,6 +22,11 @@ class Room: SCNNode {
     // Eventually, there will also be an array of all the furnitures in the room. Later.
     // private var furniture: Array<Furniture>
     
+    // The corners, walls, and connectors of this room
+    private var corners = Array<SCNNode>()
+    private var connectors = Array<Connector>()
+    private var walls = Array<Wall>()
+    
     // MARK: Constructors
     
     // Initializes an unbuilt room
@@ -36,21 +41,69 @@ class Room: SCNNode {
     
     // MARK: Methods
     
-    // Adds a point to the room boundary, connected to the last point added
-    public func addPoint(x: CGFloat, z: CGFloat) {
+    // Adds a point to the room boundary, connected to the last point added, and returning true if the room is completed
+    public func addPoint(x: CGFloat, z: CGFloat) -> Bool {
         boundaries.append((x, z))
         // Add the corner node to the point at the given hit
         let corner = SCNNode(geometry: Geometries.Corner())
-        corner.worldPosition = SCNVector3(x, 0, z)
         addChildNode(corner)
+        corner.worldPosition = SCNVector3(x, CGFloat(position.y), z)
+        print("asdasdasd")
+        corners.append(corner)
+        // Connect the corner to the previous point
+        if (corners.count > 1) {
+            let connector = Connector(from: corners[back: 1], to: corner, type: .Built)
+            addChildNode(connector)
+            connector.refresh()
+            connectors.append(connector)
+            // If the room is completed, return true and build the walls
+            if (isCompleted()) {
+                buildWalls()
+                return true;
+            }
+        }
+        return false;
     }
     
     // Removes the last point added to the room
     public func removeLastPoint() {
         if (boundaries.count != 0) {
+            // Remove the walls if already completed room
+            if (isCompleted()) {
+                removeWalls()
+            }
+            
             boundaries.removeLast()
+            connectors.removeLast()
+            corners.removeLast()
         }
     }
+    
+    // Builds the walls of the room
+    private func buildWalls() {
+        if (!isCompleted()) { return }
+        for i in 0..<(boundaries.count - 1) {
+            let wall = Wall(from: corners[i], to: corners[i+1], height: 1, withAnimation: false)
+            addChildNode(wall)
+            walls.append(wall)
+        }
+    }
+    
+    // Removes the walls of the room
+    private func removeWalls() {
+        for wall:SCNNode in walls {
+            wall.removeFromParentNode()
+        }
+        walls.removeAll(keepingCapacity: false)
+    }
+    
+    // MARK: Getters
+    
+    // Title, boundaries
+    public func getTitle() -> String { return title }
+    public func getBoundaries() -> Array<(x: CGFloat, z: CGFloat)> { return boundaries }
+    public func getLastCorner() -> SCNNode? { return corners.last }
+    public func getFirstCorner() -> SCNNode? { return corners.first }
     
     // Checks if the room has been completed (size > 2 and last point == first point)
     public func isCompleted() -> Bool {
@@ -60,10 +113,5 @@ class Room: SCNNode {
             boundaries.last?.z == boundaries.first?.z
     }
 
-    // MARK: Getters
-    
-    // Title, boundaries
-    public func getTitle() -> String { return title }
-    public func getBoundaries() -> Array<(x: CGFloat, z: CGFloat)> { return boundaries }
     
 }
