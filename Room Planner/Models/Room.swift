@@ -83,7 +83,7 @@ class Room: SCNNode {
     private func buildWalls() {
         if (!isCompleted()) { return }
         for i in 0..<(boundaries.count - 1) {
-            let wall = Wall(from: corners[i], to: corners[i+1], height: 1, withAnimation: false)
+            let wall = Wall(from: corners[i], to: corners[i+1], height: 1, withAnimation: true)
             addChildNode(wall)
             walls.append(wall)
         }

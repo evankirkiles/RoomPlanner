@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F4A423BA23A820F900ED8675 /* Wall.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A423B923A820F900ED8675 /* Wall.swift */; };
+		F4A423BD23A82B4F00ED8675 /* ViewController+ARCoachingViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A423BC23A82B4F00ED8675 /* ViewController+ARCoachingViewDelegate.swift */; };
 		F4C07A54239CB1810063EEF5 /* Geometries.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C07A53239CB1810063EEF5 /* Geometries.swift */; };
 		F4C07A59239CBC330063EEF5 /* Connector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C07A58239CBC330063EEF5 /* Connector.swift */; };
 		F4C07A5E239FF2C80063EEF5 /* SCNVector3Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C07A5D239FF2C80063EEF5 /* SCNVector3Extensions.swift */; };
@@ -41,7 +42,7 @@
 
 /* Begin PBXFileReference section */
 		F4A423B923A820F900ED8675 /* Wall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wall.swift; sourceTree = "<group>"; };
-		F4A5926723A2B56B006B40FC /* line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = line.png; sourceTree = "<group>"; };
+		F4A423BC23A82B4F00ED8675 /* ViewController+ARCoachingViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+ARCoachingViewDelegate.swift"; sourceTree = "<group>"; };
 		F4C07A53239CB1810063EEF5 /* Geometries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geometries.swift; sourceTree = "<group>"; };
 		F4C07A58239CBC330063EEF5 /* Connector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connector.swift; sourceTree = "<group>"; };
 		F4C07A5D239FF2C80063EEF5 /* SCNVector3Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNVector3Extensions.swift; sourceTree = "<group>"; };
@@ -87,10 +88,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F4A423BB23A82B3600ED8675 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				F4A423BC23A82B4F00ED8675 /* ViewController+ARCoachingViewDelegate.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		F4A5926423A2B4DC006B40FC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				F4A5926723A2B56B006B40FC /* line.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -126,6 +134,7 @@
 		F4E35DEB239B1EC200F86E9A /* Room Planner */ = {
 			isa = PBXGroup;
 			children = (
+				F4A423BB23A82B3600ED8675 /* UI */,
 				F4A5926423A2B4DC006B40FC /* Resources */,
 				F4C07A5C239FF2BA0063EEF5 /* Utils */,
 				F4E35E1C239B21C300F86E9A /* Models */,
@@ -306,6 +315,7 @@
 				F4A423BA23A820F900ED8675 /* Wall.swift in Sources */,
 				F4E35DF1239B1EC200F86E9A /* ViewController.swift in Sources */,
 				F4E35DED239B1EC200F86E9A /* AppDelegate.swift in Sources */,
+				F4A423BD23A82B4F00ED8675 /* ViewController+ARCoachingViewDelegate.swift in Sources */,
 				F4C07A59239CBC330063EEF5 /* Connector.swift in Sources */,
 				F4E35E1E239B21DD00F86E9A /* Room.swift in Sources */,
 			);

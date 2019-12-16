@@ -15,6 +15,18 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
     
+    @IBOutlet weak var controlView: UIView!
+    
+    // MARK: - UI Elements
+    
+    let coachingOverlay = ARCoachingOverlayView()
+    
+    // MARK: - Settings
+    
+    var readyToBuild = false
+    
+    var restartAvailable = true
+    
     // MARK: - Constants
     
     // How far away until snapping to initial point?
@@ -22,7 +34,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     // Bit masks for objects
     final var FLOOR_BITMASK = 0x2
     
-    // MARK: - FIELDS: Building Room
+    // MARK: - Fields
 
     // Has the ground level been found yet?
     var groundPlane: SCNNode?
@@ -37,6 +49,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // Set the view's delegate
         sceneView.delegate = self
+        
+        // Initialize the coaching (tells user what to do to get setup)
+        setupCoachingOverlay()
         
         // Show statistics such as fps and timing information
         sceneView.showsStatistics = true
@@ -72,6 +87,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     // Handles when the user performs a gesture on the screen
     @objc func handleTap(sender: UITapGestureRecognizer) {
+        
+        // If not ready to begin, don't
+        if (!readyToBuild) { return }
 
         // If the first point has not been set, wait until user taps to set the point.
         if (groundPlane == nil) {
@@ -148,6 +166,32 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 
                 currentConnector?.refresh()
             }
+        }
+    }
+    
+    // MARK: - Restart Experience
+    
+    // Removes the current room and "resets," clearing all variables
+    func restartExperience() {
+        guard restartAvailable else { return }
+        restartAvailable = false
+        
+        groundPlane?.removeFromParentNode()
+        groundPlane = nil
+        groundProjection?.removeFromParentNode()
+        groundProjection = nil
+        currentRoom?.removeFromParentNode()
+        currentRoom = nil
+        currentConnector?.removeFromParentNode()
+        currentConnector = nil
+        
+        let configuration = ARWorldTrackingConfiguration()
+        sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
+        
+        // Disable restart for 5 seconds while session sets up
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+            self.restartAvailable = true
+            self.controlView.isHidden = false
         }
     }
     

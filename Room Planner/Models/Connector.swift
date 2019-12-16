@@ -43,7 +43,9 @@ class Connector: SCNNode {
         self.firstMaterialStore = SCNMaterial()
         if (type == .Building) {
             // TODO: - This doesn't work right now. Pls fix and make image on material
-            self.firstMaterialStore.diffuse.contents = UIImage(named: "line")
+            self.firstMaterialStore.diffuse.contents = UIImage(named: "art.scnassets/line.png")
+            let rotation = SCNMatrix4MakeRotation(.pi / 2, 0, 0, 1)
+            self.firstMaterialStore.diffuse.contentsTransform = SCNMatrix4Mult(rotation, self.firstMaterialStore.diffuse.contentsTransform)
         } else {
             self.firstMaterialStore.diffuse.contents = UIColor.white
         }
