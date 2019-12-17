@@ -14,11 +14,13 @@ extension ViewController: ARCoachingOverlayViewDelegate {
     /// - Tag: HideUI
     func coachingOverlayViewWillActivate(_ coachingOverlayView: ARCoachingOverlayView) {
         controlView.isHidden = true
+        crosshairView.isHidden = true
     }
     
     /// - Tag: PresentUI
     func coachingOverlayViewDidDeactivate(_ coachingOverlayView: ARCoachingOverlayView) {
         controlView.isHidden = false
+        crosshairView.isHidden = false
         readyToBuild = true
     }
     

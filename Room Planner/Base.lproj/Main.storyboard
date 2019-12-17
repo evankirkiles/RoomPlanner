@@ -18,25 +18,37 @@
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BrB-h1-WRS">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                             </arscnView>
-                            <view opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ao8-Iz-9V4">
+                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ao8-Iz-9V4">
                                 <rect key="frame" x="0.0" y="766" width="414" height="85"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="85" id="zl0-aZ-vLg"/>
                                 </constraints>
                             </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ikt-Cy-LIh">
+                                <rect key="frame" x="167" y="391" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="VI9-sm-T59"/>
+                                    <constraint firstAttribute="width" constant="80" id="eXf-Xs-wan"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="fQZ-KI-GVf" firstAttribute="bottom" secondItem="ao8-Iz-9V4" secondAttribute="bottom" constant="11" id="10M-Da-iCg"/>
                             <constraint firstItem="ao8-Iz-9V4" firstAttribute="width" secondItem="BrB-h1-WRS" secondAttribute="width" id="CXs-BP-6DX"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" id="GsS-dJ-CKf"/>
+                            <constraint firstItem="ao8-Iz-9V4" firstAttribute="centerX" secondItem="BrB-h1-WRS" secondAttribute="centerX" id="Rao-ks-pls"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="bottom" secondItem="fQZ-KI-GVf" secondAttribute="bottom" id="VpT-BR-CcM"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="trailing" secondItem="fQZ-KI-GVf" secondAttribute="trailing" id="XyZ-9z-H8e"/>
+                            <constraint firstItem="ikt-Cy-LIh" firstAttribute="centerX" secondItem="BrB-h1-WRS" secondAttribute="centerX" id="idh-wf-dVV"/>
+                            <constraint firstItem="ikt-Cy-LIh" firstAttribute="centerY" secondItem="BrB-h1-WRS" secondAttribute="centerY" id="kVw-UG-exd"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="top" secondItem="U0K-SW-4ec" secondAttribute="top" id="rJc-2c-zQA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fQZ-KI-GVf"/>
                     </view>
                     <connections>
                         <outlet property="controlView" destination="ao8-Iz-9V4" id="dsM-fx-iS4"/>
+                        <outlet property="crosshairView" destination="ikt-Cy-LIh" id="xFY-ca-973"/>
                         <outlet property="sceneView" destination="BrB-h1-WRS" id="5nT-qQ-ynl"/>
                     </connections>
                 </viewController>

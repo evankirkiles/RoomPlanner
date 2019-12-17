@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		F4A423BA23A820F900ED8675 /* Wall.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A423B923A820F900ED8675 /* Wall.swift */; };
 		F4A423BD23A82B4F00ED8675 /* ViewController+ARCoachingViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A423BC23A82B4F00ED8675 /* ViewController+ARCoachingViewDelegate.swift */; };
+		F4A423BF23A857EB00ED8675 /* TextDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A423BE23A857EB00ED8675 /* TextDisplay.swift */; };
 		F4C07A54239CB1810063EEF5 /* Geometries.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C07A53239CB1810063EEF5 /* Geometries.swift */; };
 		F4C07A59239CBC330063EEF5 /* Connector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C07A58239CBC330063EEF5 /* Connector.swift */; };
 		F4C07A5E239FF2C80063EEF5 /* SCNVector3Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C07A5D239FF2C80063EEF5 /* SCNVector3Extensions.swift */; };
@@ -43,6 +44,7 @@
 /* Begin PBXFileReference section */
 		F4A423B923A820F900ED8675 /* Wall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wall.swift; sourceTree = "<group>"; };
 		F4A423BC23A82B4F00ED8675 /* ViewController+ARCoachingViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+ARCoachingViewDelegate.swift"; sourceTree = "<group>"; };
+		F4A423BE23A857EB00ED8675 /* TextDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextDisplay.swift; sourceTree = "<group>"; };
 		F4C07A53239CB1810063EEF5 /* Geometries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geometries.swift; sourceTree = "<group>"; };
 		F4C07A58239CBC330063EEF5 /* Connector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connector.swift; sourceTree = "<group>"; };
 		F4C07A5D239FF2C80063EEF5 /* SCNVector3Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNVector3Extensions.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 				F4C07A53239CB1810063EEF5 /* Geometries.swift */,
 				F4C07A58239CBC330063EEF5 /* Connector.swift */,
 				F4A423B923A820F900ED8675 /* Wall.swift */,
+				F4A423BE23A857EB00ED8675 /* TextDisplay.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				F4E35DED239B1EC200F86E9A /* AppDelegate.swift in Sources */,
 				F4A423BD23A82B4F00ED8675 /* ViewController+ARCoachingViewDelegate.swift in Sources */,
 				F4C07A59239CBC330063EEF5 /* Connector.swift in Sources */,
+				F4A423BF23A857EB00ED8675 /* TextDisplay.swift in Sources */,
 				F4E35E1E239B21DD00F86E9A /* Room.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

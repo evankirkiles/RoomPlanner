@@ -33,6 +33,7 @@ class Wall: SCNNode {
         plane = SCNPlane(width: CGFloat(node1.position.distance(vector: node2.position)), height: height)
         plane.firstMaterial?.diffuse.contents = UIImage(named: "art.scnassets/gradient.png")
         plane.firstMaterial?.transparency = Wall.DEFAULT_TRANSPARENCY
+        plane.firstMaterial?.isDoubleSided = true
         super.init()
         geometry = plane
         position = (node1.position + node2.position) / 2

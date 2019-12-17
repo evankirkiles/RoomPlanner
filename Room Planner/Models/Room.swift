@@ -15,6 +15,8 @@ class Room: SCNNode {
     
     // The name of the room (under which it will be saved)
     private var title: String!
+    // Keep a reference to the camera node which will be looked at by text
+    private var cameraNode: SCNNode
     
     // The list of all points' offsets from the initial point in the room
     private var boundaries: Array<(x: CGFloat, z: CGFloat)> = []
@@ -30,8 +32,9 @@ class Room: SCNNode {
     // MARK: Constructors
     
     // Initializes an unbuilt room
-    init(name: String) {
-        title = name
+    init(name: String, cameraNode: SCNNode) {
+        self.title = name
+        self.cameraNode = cameraNode
         super.init()
     }
     
@@ -48,11 +51,10 @@ class Room: SCNNode {
         let corner = SCNNode(geometry: Geometries.Corner())
         addChildNode(corner)
         corner.worldPosition = SCNVector3(x, CGFloat(position.y), z)
-        print("asdasdasd")
         corners.append(corner)
         // Connect the corner to the previous point
         if (corners.count > 1) {
-            let connector = Connector(from: corners[back: 1], to: corner, type: .Built)
+            let connector = Connector(from: corners[back: 1], to: corner, type: .Built, lookAt: cameraNode, withDistance: true)
             addChildNode(connector)
             connector.refresh()
             connectors.append(connector)

@@ -17,6 +17,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     @IBOutlet weak var controlView: UIView!
     
+    @IBOutlet weak var crosshairView: UIImageView!
+    
     // MARK: - UI Elements
     
     let coachingOverlay = ARCoachingOverlayView()
@@ -77,6 +79,12 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // Give the user their first instructions
         announce(message: "Please place your phone on the ground and tap the screen to initialize floor height!")
+        // Also initialize the basic crosshair
+        crosshairView.image = UIImage(named: "art.scnassets/crosshair1.png")?.withTintColor(.white)
+        // Hide the controls and crosshair until floor setup
+        controlView.isHidden = true
+        crosshairView.isHidden = true
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -108,7 +116,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 sceneView.scene.rootNode.addChildNode(groundPlane!)
                 groundPlane!.worldPosition.y = hitResult.worldCoordinates.y
                 // Begin building the room
-                currentRoom = Room(name: "Building room...")
+                currentRoom = Room(name: "Building room...", cameraNode: sceneView.pointOfView!)
                 currentRoom!.position.y = groundPlane!.position.y
                 sceneView.scene.rootNode.addChildNode(currentRoom!)
                 
