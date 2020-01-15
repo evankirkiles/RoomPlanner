@@ -16,31 +16,38 @@ class TextDisplay: SCNNode {
     // The component nodes of the text display
     private var background: SCNNode?
     private var textNode: SCNNode?
+    private var textGeom: SCNText?
     
     // Build the text display object as an SCNPlane to look at the camera
     public init(text: String, color: UIColor, backgroundColor: UIColor = .clear) {
         
         super.init()
         
-        let textGeom = SCNText(string: text, extrusionDepth: 0)
-        textGeom.font = UIFont(name: "AvenirNext-Medium", size: 0.1)
-        textGeom.firstMaterial?.diffuse.contents = UIColor.red
+        textGeom = SCNText(string: text, extrusionDepth: 0.0)
+        textGeom!.firstMaterial?.writesToDepthBuffer = false
+        textGeom!.firstMaterial?.diffuse.contents = UIColor.black
         textNode = SCNNode(geometry: textGeom)
         // Bring it slightly forward on the z-axis
         textNode!.position = SCNVector3(0, 0, 0.01)
+        textNode!.scale = SCNVector3(0.001, 0.001, 0.001)
         center(node: textNode!)
         addChildNode(textNode!)
         
         // Add a background plane
-        geometry = SCNPlane(width: 0.1, height: 0.05)
-        geometry?.firstMaterial!.diffuse.contents = backgroundColor
-        geometry?.firstMaterial?.transparency = 1
+        let bgnPlane = SCNPlane(width: 0.05, height: 0.03)
+        bgnPlane.cornerRadius = 0.02
+        geometry = bgnPlane
+        geometry?.firstMaterial?.writesToDepthBuffer = false
+        geometry?.firstMaterial?.diffuse.contents = UIColor.white
         
-        let billboardconstraint = SCNBillboardConstraint()
-        billboardconstraint.freeAxes = SCNBillboardAxis.Y
-        constraints = [billboardconstraint]
-        
+//        let billboardconstraint = SCNBillboardConstraint()
+//        billboardconstraint.freeAxes = SCNBillboardAxis.Y
+//        constraints = [billboardconstraint]
+        renderingOrder = -100
     }
+    
+    // Changes the text displayed
+    public func changeText(to: String) { textGeom!.string = to }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

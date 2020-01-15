@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F4613C1123C3F6200030AA13 /* Overlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4613C1023C3F6200030AA13 /* Overlay.swift */; };
 		F4A423BA23A820F900ED8675 /* Wall.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A423B923A820F900ED8675 /* Wall.swift */; };
 		F4A423BD23A82B4F00ED8675 /* ViewController+ARCoachingViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A423BC23A82B4F00ED8675 /* ViewController+ARCoachingViewDelegate.swift */; };
 		F4A423BF23A857EB00ED8675 /* TextDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A423BE23A857EB00ED8675 /* TextDisplay.swift */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F4613C1023C3F6200030AA13 /* Overlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Overlay.swift; sourceTree = "<group>"; };
 		F4A423B923A820F900ED8675 /* Wall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wall.swift; sourceTree = "<group>"; };
 		F4A423BC23A82B4F00ED8675 /* ViewController+ARCoachingViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+ARCoachingViewDelegate.swift"; sourceTree = "<group>"; };
 		F4A423BE23A857EB00ED8675 /* TextDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextDisplay.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				F4A423BC23A82B4F00ED8675 /* ViewController+ARCoachingViewDelegate.swift */,
+				F4613C1023C3F6200030AA13 /* Overlay.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 			files = (
 				F4C07A54239CB1810063EEF5 /* Geometries.swift in Sources */,
 				F4C07A5E239FF2C80063EEF5 /* SCNVector3Extensions.swift in Sources */,
+				F4613C1123C3F6200030AA13 /* Overlay.swift in Sources */,
 				F4A423BA23A820F900ED8675 /* Wall.swift in Sources */,
 				F4E35DF1239B1EC200F86E9A /* ViewController.swift in Sources */,
 				F4E35DED239B1EC200F86E9A /* AppDelegate.swift in Sources */,

@@ -38,7 +38,7 @@ class Connector: SCNNode {
     private var distanceNode: TextDisplay?
     
     // Build with references to the nodes to be connected
-    init(from node1: SCNNode, to node2: SCNNode, type: ConnectorType, lookAt: SCNNode? = nil, withDistance: Bool = true) {
+    init(from node1: SCNNode, to node2: SCNNode, type: ConnectorType, withDistance: Bool = true) {
         self.node1 = node1
         self.node2 = node2
         self.type = type
@@ -46,8 +46,7 @@ class Connector: SCNNode {
         // Initialize the material to add to the cylinder
         self.firstMaterialStore = SCNMaterial()
         if (type == .Building) {
-            // TODO: - This doesn't work right now. Pls fix and make image on material
-            self.firstMaterialStore.diffuse.contents = UIImage(named: "art.scnassets/gradient.png")
+            self.firstMaterialStore.diffuse.contents = UIImage(named: "art.scnassets/line.png")
             let rotation = SCNMatrix4MakeRotation(.pi / 2, 0, 0, 1)
             self.firstMaterialStore.diffuse.contentsTransform = SCNMatrix4Mult(rotation, self.firstMaterialStore.diffuse.contentsTransform)
         } else {
@@ -58,10 +57,8 @@ class Connector: SCNNode {
         self.firstMaterialStore.isDoubleSided = true
         super.init()
         
-        // If building with distance, create the distance node
-        if (withDistance && lookAt != nil) {
-            print("makin it")
-            distanceNode = TextDisplay(text: "asdasdasd", color: UIColor.white)
+        if (withDistance) {
+            distanceNode = TextDisplay(text: "...", color: UIColor.white)
             addChildNode(distanceNode!)
         }
     }
@@ -76,6 +73,16 @@ class Connector: SCNNode {
         geometry = cylinder
         worldPosition = (node1.worldPosition + node2.worldPosition) / 2
         eulerAngles = SCNVector3.lineEulerAngles(vector: vector)
+        
+        // If building with distance, create the distance node
+        if (withDistance) {
+            refreshdistance()
+        }
+    }
+    
+    // Redraw the distance
+    func refreshdistance() {
+        distanceNode?.eulerAngles = SCNVector3(0, 0, Float.pi/2)
     }
     
     // Sets the first and second node of the connector

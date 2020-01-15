@@ -54,7 +54,7 @@ class Room: SCNNode {
         corners.append(corner)
         // Connect the corner to the previous point
         if (corners.count > 1) {
-            let connector = Connector(from: corners[back: 1], to: corner, type: .Built, lookAt: cameraNode, withDistance: true)
+            let connector = Connector(from: corners[back: 1], to: corner, type: .Built, withDistance: true)
             addChildNode(connector)
             connector.refresh()
             connectors.append(connector)

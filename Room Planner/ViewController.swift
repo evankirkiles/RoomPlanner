@@ -15,7 +15,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
     
-    @IBOutlet weak var controlView: UIView!
+    @IBOutlet weak var controlView: Overlay!
     
     @IBOutlet weak var crosshairView: UIImageView!
     
